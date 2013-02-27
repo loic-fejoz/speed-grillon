@@ -31,7 +31,7 @@ régulière. En particulier dans un contexte de conduite automobile,
 cela permet de :
 
 - économiser du carburant,
-- avoir un vitesse inférieure à la vitesse limite imposer par le
+- avoir un vitesse inférieure à la vitesse limite imposée par le
   code de la route.
 
 
@@ -59,18 +59,19 @@ Le contexte principal du {sysname} est l'intérieur d'une voiture.
 
 Le système pourrait être détourné de son usage premier afin d'être
 utilisé dans d'autres contextes comme, par exemple, en course à
-pied. En effet, lors des entrainements, il est important pour un
+pied. En effet, lors des entraînements, il est important pour un
 coureur d'avoir un rythme régulier. Le {sysname} pourrait dés lors
 être adapté à un tel usage.
 
 Ces autres contextes ne devront être pris en compte que lorsqu'un
 compromis restreindrait de tels usages.
 
-== Concept opérationel
+== Concept opérationnel
 //////////////////////////////////////////
 Indiquer ici le comment et le qui. C'est à dire le concept du
 système mais de manière plus abstraites que les scénarios.
 //////////////////////////////////////////
+
 
 [[scenarios]]
 == Scénarios
@@ -79,15 +80,21 @@ Décrire ici les séquences d'utilisation du système, ie le où et le
 quand.
 //////////////////////////////////////////
 
+
+
 [[requirements]]
 == Exigences
 //////////////////////////////////////////
 Ajouter dans cette partie les exigences utilisateurs en suivant le
 schéma suivant : 
 req----
-.U1
+.UXXX
 Description ::
     Le {sysname} 
+Justification::
+    
+Critères d'acceptation::
+    
 SMART::
     Oui/Non
 Auteur ::
@@ -109,11 +116,154 @@ req----
 Penser ici aux exigences d'interface, d'IHM, interopérabilité, etc.
 //////////////////////////////////////////
 
+req----
+.U1
+Description ::
+    En fonctionnement, le {sysname} doit fournir au <<conducteur>> le signe de l'écart entre la vitesse
+    cible et la vitesse réelle.
+Justification::
+    Le <<conducteur>> doit savoir s'il faut ralentir ou accélérer.
+Critères d'acceptation::
+    Le <<conducteur>> reçoit l'information dés que l'écart est
+    supérieur à 0.5km/h.
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
+
+req----
+.U2
+Description ::
+    En fonctionnement, le {sysname} doit fournir au <<conducteur>> la grandeur de l'écart entre la vitesse
+    cible et la vitesse réelle.
+Justification::
+    Le <<conducteur>> doit savoir s'il est éloigné de la consigne afin
+    de jauger de la grandeur de l'action à prendre en fonction de son environnement.
+Critères d'acceptation::
+    Le <<conducteur>> reçoit l'information dés que l'écart est
+    supérieur à 0.5km/h.
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
+
+req----
+.U3
+Description ::
+    En mode réglage, le <<conducteur>> peut établir une liste de vitesses consignes de références.
+Justification::
+    Cela permet au conducteur de référencer les vitesses limites les
+    plus utilisées dans son pays.
+Critères d'acceptation::
+    TODO
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
+
+req----
+.U4
+Description ::
+    En fonctionnement, le <<conducteur>> peut remplacer la consigne
+    courante par la valeur la plus grande de sa liste préétablie
+    immédiatement inférieure à la consigne actuelle.
+Justification::
+    Cela limite le temps d'interaction avec le système.
+Critères d'acceptation::
+    TODO
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
+
+req----
+.U5
+Description ::
+    En fonctionnement, le <<conducteur>> peut remplacer la consigne
+    courante par la valeur la plus petite de sa liste préétablie
+    immédiatement supérieure à la consigne actuelle.
+Justification::
+    Cela limite le temps d'interaction avec le système.
+Critères d'acceptation::
+    TODO
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
+
 === Performance
 //////////////////////////////////////////
 Penser ici aux exigences de maintenance, d'efficacité, d'efficience,
 de sûreté de fonctionnement, de sécurité, etc.
 //////////////////////////////////////////
+
+req----
+.U6
+Description ::
+    Le {sysname} doit fournir une information à jour toutes 2 secondes.
+Justification::
+    C'est un compromis entre le temps de réaction du conducteur et l'inertie de
+    la voiture.
+Critères d'acceptation::
+    2s +/- 1s.
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
 
 === Technologie
 //////////////////////////////////////////
@@ -127,6 +277,29 @@ réglementaires, réutilisabilité, etc.
 Penser ici aux coûts de fabrication, de conception, d'utilisation, de
 fourniture, etc.
 //////////////////////////////////////////
+
+req----
+.U7
+Description ::
+    Le {sysname} doit coûter moins de 68€ à construire.
+Justification::
+    C'est le prix d'une amende 3ème classe tarif normal (dépassement 20km/h).
+Critères d'acceptation::
+    Le prix est au coût complet sauf réutilisation de matériel déjà
+    possédé par le <<conducteur>>.
+SMART::
+    Oui/Non
+Auteur ::
+    {lf}
+Source ::
+    
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    
+req----
 
 === Test
 //////////////////////////////////////////
