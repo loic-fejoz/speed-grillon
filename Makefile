@@ -25,7 +25,7 @@ clean:
 
 distclean: clean
 	@echo '==> Cleaning distribution files'
-	@rm -f $(MAIN)
+	@rm -f $(MAIN) lifecycle.png
 
 
 .PHONY: cdcu
