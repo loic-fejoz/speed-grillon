@@ -6,11 +6,14 @@ MAIN=cdcu.html FAQ.html README.html
 
 all: $(MAIN)
 
-%.html: %.adoc
+%.html: %.adoc asciidoc.conf
 	$(ASCIIDOC) -a toc2 -b html5 -a numbered $< 
 
 %.html: %.md
 	$(MD) $< > $@
+
+cdcu: cdcu.html
+	x-www-browser cdcu.html
 
 clean: 
 	@echo '==> Cleaning compilation files'
@@ -23,3 +26,6 @@ clean:
 distclean: clean
 	@echo '==> Cleaning distribution files'
 	@rm -f $(MAIN)
+
+
+.PHONY: cdcu
