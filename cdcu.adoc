@@ -38,7 +38,22 @@ cela permet de :
 === Cycle de vie et Parties Prenantes
 
 ==== Cycle de vie
-//TODO
+["graphviz", "lifecycle.png"]
+---------------------------------------------------------------------
+digraph G {
+  init[shape=circle, style=filled, color=black, label=""];
+  unused[label="Non utilisé"];
+  subgraph cluster_used {
+    cruising[label="conduite"];
+    setting[label="réglage"];
+    label = "Utilisé";
+    color = lightgrey;
+  }
+  end[shape = doublecircle, label=""];
+  init -> cruising -> unused -> end;
+  unused -> cruising -> setting -> cruising;
+}
+---------------------------------------------------------------------
 
 [[partiesprenantes]]
 ==== Parties prenantes
@@ -90,7 +105,7 @@ schéma suivant :
 req----
 .UXXX
 Description ::
-    Le {sysname} 
+    Le {sysname} ... La partie prenante ...
 Justification::
     
 Critères d'acceptation::
@@ -116,18 +131,18 @@ req----
 Penser ici aux exigences d'interface, d'IHM, interopérabilité, etc.
 //////////////////////////////////////////
 
-req----
 .U1
+req----
 Description ::
-    En fonctionnement, le {sysname} doit fournir au <<conducteur>> le signe de l'écart entre la vitesse
+    En mode conduite, le <<conducteur>> doit connaitre le signe de l'écart entre la vitesse
     cible et la vitesse réelle.
 Justification::
     Le <<conducteur>> doit savoir s'il faut ralentir ou accélérer.
 Critères d'acceptation::
     Le <<conducteur>> reçoit l'information dés que l'écart est
-    supérieur à 0.5km/h.
+    supérieur à 0,5km/h en moins d'une seconde.
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -140,19 +155,19 @@ Exigence filles ::
     
 req----
 
-req----
 .U2
+req----
 Description ::
-    En fonctionnement, le {sysname} doit fournir au <<conducteur>> la grandeur de l'écart entre la vitesse
+    En mode conduite, le <<conducteur>> doit connaitre la grandeur de l'écart entre la vitesse
     cible et la vitesse réelle.
 Justification::
     Le <<conducteur>> doit savoir s'il est éloigné de la consigne afin
     de jauger de la grandeur de l'action à prendre en fonction de son environnement.
 Critères d'acceptation::
-    Le <<conducteur>> reçoit l'information dés que l'écart est
-    supérieur à 0.5km/h.
+    Le <<conducteur>> reçoit l'information en moins d'une seconde dés que l'écart est
+    supérieur à 0,5km/h.
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -165,8 +180,30 @@ Exigence filles ::
     
 req----
 
+.G3
 req----
+Description ::
+    Le temps de configuration doit être minimal.
+Justification::
+    Cela permet aux conducteurs de s'abstraire du système.
+Critères d'acceptation::
+    TODO
+SMART::
+    [line-through]#Oui#/Non
+Auteur ::
+    {lf}
+Source ::
+    {lf}
+Partie prenante ::
+    <<conducteur>>
+Exigence parent ::
+    
+Exigence filles ::
+    <<U3>>, <<U4>>, <<U5>>
+req----
+
 .U3
+req----
 Description ::
     En mode réglage, le <<conducteur>> peut établir une liste de vitesses consignes de références.
 Justification::
@@ -175,7 +212,7 @@ Justification::
 Critères d'acceptation::
     TODO
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -183,15 +220,15 @@ Source ::
 Partie prenante ::
     <<conducteur>>
 Exigence parent ::
-    
+    <<G3>>
 Exigence filles ::
     
 req----
 
-req----
 .U4
+req----
 Description ::
-    En fonctionnement, le <<conducteur>> peut remplacer la consigne
+    En mode conduite, le <<conducteur>> peut remplacer la consigne
     courante par la valeur la plus grande de sa liste préétablie
     immédiatement inférieure à la consigne actuelle.
 Justification::
@@ -199,7 +236,7 @@ Justification::
 Critères d'acceptation::
     TODO
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -207,15 +244,15 @@ Source ::
 Partie prenante ::
     <<conducteur>>
 Exigence parent ::
-    
+    <<G3>>
 Exigence filles ::
     
 req----
 
-req----
 .U5
+req----
 Description ::
-    En fonctionnement, le <<conducteur>> peut remplacer la consigne
+    En mode conduite, le <<conducteur>> peut remplacer la consigne
     courante par la valeur la plus petite de sa liste préétablie
     immédiatement supérieure à la consigne actuelle.
 Justification::
@@ -223,7 +260,7 @@ Justification::
 Critères d'acceptation::
     TODO
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -231,7 +268,7 @@ Source ::
 Partie prenante ::
     <<conducteur>>
 Exigence parent ::
-    
+    <<G3>>
 Exigence filles ::
     
 req----
@@ -242,10 +279,10 @@ Penser ici aux exigences de maintenance, d'efficacité, d'efficience,
 de sûreté de fonctionnement, de sécurité, etc.
 //////////////////////////////////////////
 
-req----
 .U6
+req----
 Description ::
-    Le {sysname} doit fournir une information à jour toutes 2 secondes.
+    Le {sysname} doit fournir une information à jour toutes les 2 secondes.
 Justification::
     C'est un compromis entre le temps de réaction du conducteur et l'inertie de
     la voiture.
@@ -272,14 +309,16 @@ standards mécaniques ou de connectique, de design et de fabrication,
 réglementaires, réutilisabilité, etc.
 //////////////////////////////////////////
 
+TODO
+
 === Coût
 //////////////////////////////////////////
 Penser ici aux coûts de fabrication, de conception, d'utilisation, de
 fourniture, etc.
 //////////////////////////////////////////
 
-req----
 .U7
+req----
 Description ::
     Le {sysname} doit coûter moins de 68€ à construire.
 Justification::
@@ -288,7 +327,7 @@ Critères d'acceptation::
     Le prix est au coût complet sauf réutilisation de matériel déjà
     possédé par le <<conducteur>>.
 SMART::
-    Oui/Non
+    Oui/[line-through]#Non#
 Auteur ::
     {lf}
 Source ::
@@ -306,13 +345,19 @@ req----
 Penser ici aux auto-tests, boites noires/grises/blanches, testabilité, etc.
 //////////////////////////////////////////
 
+TODO
+
 === Compromis
 //////////////////////////////////////////
 Indiquer ici comment résoudre les conflits entre exigences :
 Performance/Coûts, etc.
 //////////////////////////////////////////
 
+TODO
+
 == Glossaire
+
+TODO
 
 == Traçabilité
 
@@ -324,6 +369,7 @@ section <<requirements>>. Vérifiez que chaque partie prenante a bien
 au moins une exigence.
 //////////////////////////////////////////
 
+TODO
 
 === Matrice Parties prenantes / Scénarios
 //////////////////////////////////////////
@@ -332,3 +378,4 @@ de la section <<partiesprenantes>> en regard des scénarios de la
 section <<scenarios>>. Vérifiez que chaque partie prenante intervient
 dans au moins un scénario.
 //////////////////////////////////////////
+TODO
