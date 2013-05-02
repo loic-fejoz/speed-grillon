@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="AsciiDoc 8.6.7">
+<meta name="description" content="">
+<title>Cahier des charges utilisateurs - Speed-Grillon</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+tt {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+.monospaced {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+}
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+@media screen {
+  body {
+    max-width: 50em; /* approximately 80 characters wide */
+    margin-left: 16em;
+  }
+
+  #toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 13em;
+    padding: 0.5em;
+    padding-bottom: 1.5em;
+    margin: 0;
+    overflow: auto;
+    border-right: 3px solid #f8f8f8;
+    background-color: white;
+  }
+
+  #toc .toclevel1 {
+    margin-top: 0.5em;
+  }
+
+  #toc .toclevel2 {
+    margin-top: 0.25em;
+    display: list-item;
+    color: #aaaaaa;
+  }
+
+  #toctitle {
+    margin-top: 0.5em;
+  }
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Cahier des charges utilisateurs - Speed-Grillon</h1>
+<span id="author">Loïc Fejoz</span><br>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Ce document sert de référence à la conception du Système Speed-Grillon. En
+cela, il explicite et synthétise les besoins exprimés lors des
+réunions et ceux recueillis dans les documents suivant :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+TODO référencer les documents externes existants
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_présentation_du_système">2. Présentation du système</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_finalité_mission_et_objectifs">2.1. Finalité, Mission et Objectifs</h3>
+<div class="paragraph"><p>La finalité du Système Speed-Grillon est d&#8217;informer l&#8217;utilisateur de l'écart entre
+sa vitesse actuelle et une vitesse cible.</p></div>
+<div class="paragraph"><p>Sa mission principale est de permettre à l&#8217;utilisateur d&#8217;avoir une vitesse
+régulière. En particulier dans un contexte de conduite automobile,
+cela permet de :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+économiser du carburant,
+</p>
+</li>
+<li>
+<p>
+avoir un vitesse inférieure à la vitesse limite imposée par le
+  code de la route.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_cycle_de_vie_et_parties_prenantes">2.2. Cycle de vie et Parties Prenantes</h3>
+<div class="sect3">
+<h4 id="_cycle_de_vie">2.2.1. Cycle de vie</h4>
+<div class="imageblock graphviz">
+<div class="content">
+<img alt="lifecycle.png" src="data:image/png;base64,
+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
+AdxTCJ+uhQdCAAAAAElFTkSuQmCC">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="partiesprenantes">2.2.2. Parties prenantes</h4>
+<div class="ulist"><ul>
+<li>
+<p>
+Concepteurs : Jérémie Nevin, Hamza Karzouz
+</p>
+</li>
+<li>
+<p>
+Fabricant :
+</p>
+</li>
+<li>
+<p>
+<a id="conducteur"></a> Utilisateur final : Conducteur automobile
+</p>
+</li>
+<li>
+<p>
+Mainteneurs :
+</p>
+</li>
+<li>
+<p>
+Acheteurs :
+</p>
+</li>
+<li>
+<p>
+Transporteur :
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contexte_d_8217_utilisation">2.3. Contexte d&#8217;utilisation</h3>
+<div class="sect3">
+<h4 id="_contexte_de_conduite_automobile">2.3.1. Contexte de conduite automobile</h4>
+<div class="paragraph"><p>Le contexte principal du Système Speed-Grillon est l&#8217;intérieur d&#8217;une voiture.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_autres_contextes">2.3.2. Autres contextes</h4>
+<div class="paragraph"><p>Le système pourrait être détourné de son usage premier afin d'être
+utilisé dans d&#8217;autres contextes comme, par exemple, en course à
+pied. En effet, lors des entraînements, il est important pour un
+coureur d&#8217;avoir un rythme régulier. Le Système Speed-Grillon pourrait dés lors
+être adapté à un tel usage.</p></div>
+<div class="paragraph"><p>Ces autres contextes ne devront être pris en compte que lorsqu&#8217;un
+compromis restreindrait de tels usages.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_concept_opérationnel">3. Concept opérationnel</h2>
+<div class="sectionbody">
+</div>
+</div>
+<div class="sect1">
+<h2 id="scenarios">4. Scénarios</h2>
+<div class="sectionbody">
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements">5. Exigences</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_entrées_sorties">5.1. Entrées/Sorties</h3>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 1 - <a name="U1"></a>U1</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    En mode conduite, le <a href="#conducteur">[conducteur]</a> doit connaitre le signe de l'écart entre la vitesse
+    cible et la vitesse réelle.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Le <a href="#conducteur">[conducteur]</a> doit savoir s&#8217;il faut ralentir ou accélérer.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    Le <a href="#conducteur">[conducteur]</a> reçoit l&#8217;information dés que l'écart est
+    supérieur à 0,5km/h en moins d&#8217;une seconde.
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 2 - <a name="U2"></a>U2</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    En mode conduite, le <a href="#conducteur">[conducteur]</a> doit connaitre la grandeur de l'écart entre la vitesse
+    cible et la vitesse réelle.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Le <a href="#conducteur">[conducteur]</a> doit savoir s&#8217;il est éloigné de la consigne afin
+    de jauger de la grandeur de l&#8217;action à prendre en fonction de son environnement.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    Le <a href="#conducteur">[conducteur]</a> reçoit l&#8217;information en moins d&#8217;une seconde dés que l'écart est
+    supérieur à 0,5km/h.
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 3 - <a name="G3"></a>G3</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    Le temps de configuration doit être minimal.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Cela permet aux conducteurs de s&#8217;abstraire du système.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    TODO
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    <span class="line-through">Oui</span>/Non
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+<p>
+    <a href="#U3">[U3]</a>, <a href="#U4">[U4]</a>, <a href="#U5">[U5]</a>
+</p>
+</dd>
+</dl></div>
+</div></div>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 4 - <a name="U3"></a>U3</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    En mode réglage, le <a href="#conducteur">[conducteur]</a> peut établir une liste de vitesses consignes de références.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Cela permet au conducteur de référencer les vitesses limites les
+    plus utilisées dans son pays.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    TODO
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dd>
+<p>
+    <a href="#G3">[G3]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 5 - <a name="U4"></a>U4</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    En mode conduite, le <a href="#conducteur">[conducteur]</a> peut remplacer la consigne
+    courante par la valeur la plus grande de sa liste préétablie
+    immédiatement inférieure à la consigne actuelle.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Cela limite le temps d&#8217;interaction avec le système.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    TODO
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dd>
+<p>
+    <a href="#G3">[G3]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 6 - <a name="U5"></a>U5</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    En mode conduite, le <a href="#conducteur">[conducteur]</a> peut remplacer la consigne
+    courante par la valeur la plus petite de sa liste préétablie
+    immédiatement supérieure à la consigne actuelle.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    Cela limite le temps d&#8217;interaction avec le système.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    TODO
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dd>
+<p>
+    <a href="#G3">[G3]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_performance">5.2. Performance</h3>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 7 - <a name="U6"></a>U6</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    Le Système Speed-Grillon doit fournir une information à jour toutes les 2 secondes.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    C&#8217;est un compromis entre le temps de réaction du conducteur et l&#8217;inertie de
+    la voiture.
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    2s +/- 1s.
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/Non
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_technologie">5.3. Technologie</h3>
+<div class="paragraph"><p>TODO</p></div>
+</div>
+<div class="sect2">
+<h3 id="_coût">5.4. Coût</h3>
+<div class="requirementblock">
+<div class="title">Requirement&nbsp; 8 - <a name="U7"></a>U7</div>
+<div class="content">
+<div class="dlist"><dl>
+<dt class="hdlist1">
+Description 
+</dt>
+<dd>
+<p>
+    Le Système Speed-Grillon doit coûter moins de 68€ à construire.
+</p>
+</dd>
+<dt class="hdlist1">
+Justification
+</dt>
+<dd>
+<p>
+    C&#8217;est le prix d&#8217;une amende 3ème classe tarif normal (dépassement 20km/h).
+</p>
+</dd>
+<dt class="hdlist1">
+Critères d&#8217;acceptation
+</dt>
+<dd>
+<p>
+    Le prix est au coût complet sauf réutilisation de matériel déjà
+    possédé par le <a href="#conducteur">[conducteur]</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+SMART
+</dt>
+<dd>
+<p>
+    Oui/<span class="line-through">Non</span>
+</p>
+</dd>
+<dt class="hdlist1">
+Auteur 
+</dt>
+<dd>
+<p>
+    Loïc Fejoz
+</p>
+</dd>
+<dt class="hdlist1">
+Source 
+</dt>
+<dt class="hdlist1">
+Partie prenante 
+</dt>
+<dd>
+<p>
+    <a href="#conducteur">[conducteur]</a>
+</p>
+</dd>
+<dt class="hdlist1">
+Exigence parent 
+</dt>
+<dt class="hdlist1">
+Exigence filles 
+</dt>
+<dd>
+</dd>
+</dl></div>
+</div></div>
+</div>
+<div class="sect2">
+<h3 id="_test">5.5. Test</h3>
+<div class="paragraph"><p>TODO</p></div>
+</div>
+<div class="sect2">
+<h3 id="_compromis">5.6. Compromis</h3>
+<div class="paragraph"><p>TODO</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_glossaire">6. Glossaire</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>TODO</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_traçabilité">7. Traçabilité</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_matrice_parties_prenantes_exigences">7.1. Matrice Parties prenantes / Exigences</h3>
+<div class="paragraph"><p>TODO</p></div>
+</div>
+<div class="sect2">
+<h3 id="_matrice_parties_prenantes_scénarios">7.2. Matrice Parties prenantes / Scénarios</h3>
+<div class="paragraph"><p>TODO</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-05-02 15:03:11 CEST
+</div>
+</div>
+</body>
+</html>
