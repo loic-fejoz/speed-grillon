@@ -1,0 +1,7 @@
+* Maintenir la connaissance de l'écart entre vitesses cible et véhicule
+  * Régler la vitesse cible(in cmds; out vc)
+  * Acquérir la vitesse véhicule(out vvh)
+    * Acquérir les signaux GPS(in ondes; out gps)
+    * Calculer la position véhicule(in gps; out posh)
+    * Calculer la vitesse véhicule(in posh; out vvh)
+  * Informer le conducteur(in vc, vvh; out info)

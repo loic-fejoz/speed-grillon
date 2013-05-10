@@ -1,0 +1,27 @@
+digraph {
+    rankdir=BT;
+    node [shape=record];
+    G1 [label="{{«requirement»\nObjectifCarburant}|{id=\"G1\"\ntext=\"Le conducteur adapte sa conduite pour ��conomiser du carburant.\"}}"];
+    G2 [label="{{«requirement»\nObjectifVitesseReg}|{id=\"G2\"\ntext=\"Le conducteur adopte une vitesse r��guli��re, dite cible.\"}}"];
+    G3 [label="{{«requirement»\nObjectifPV}|{id=\"G3\"\ntext=\"Eviter les PVs\"}}"];
+    G4 [label="{{«requirement»\nObjConduitePV}|{id=\"G4\"\ntext=\"Le conducteur adapte sa conduite pour ne pas avoir de PV.\"}}"];
+    R1 [label="{{«requirement»\nVitesseLimite}|{id=\"R1\"\ntext=\"La vitesse du v��hicule est toujours en de���� de la vitesse limite.\"}}"];
+    R2 [label="{{«requirement»\nConnaissanceEcart}|{id=\"R2\"\ntext=\"Le conducteur conna��t l'��cart entre la vitesse du v��hicule et la vitesse cible.\"}}"];
+    node [shape=record];
+    node [shape=none,width=0.0,height=0.0];
+    T1972366276[label="«refines»"];
+    G2 -> T1972366276[arrowhead=none];
+    T1972366276 -> G1[];
+    T1972366340[label="«refines»"];
+    G4 -> T1972366340[arrowhead=none];
+    T1972366340 -> G3[];
+    T1972376819[label="«refines»"];
+    R1 -> T1972376819[arrowhead=none];
+    T1972376819 -> G4[];
+    T1972376848[label="«refines»"];
+    R2 -> T1972376848[arrowhead=none];
+    T1972376848 -> G2[];
+    T1972377188[label="«refines»"];
+    R2 -> T1972377188[arrowhead=none];
+    T1972377188 -> R1[];
+}
