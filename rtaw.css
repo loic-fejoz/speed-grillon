@@ -1,0 +1,17 @@
+div.requirementblock {
+  margin-top: 1em;
+  margin-left: 1em;
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.goalblock {
+  margin-top: 1em;
+  margin-left: 1em;
+  background: #f3edff;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
