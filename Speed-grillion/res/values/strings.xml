@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">Speed-grillion</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="not_applicable">N/A</string>
+    <string name="initializing">Initializing</string>
+    <string name="error_no_provider">Sorry, this device lacks a suitable location provider for this application.</string>
+    <string name="confirm">OK</string>
+    <string name="error_provider_disabled">GPS location is disabled in the settings, please enable it.</string>
+    <string name="waiting_location">Waiting for GPS fix.</string>
 
 </resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="initializing">Initialisation</string>
+    <string name="error_no_provider">Ce périphérique n\'a pas de GPS.</string>
+    <string name="error_provider_disabled">La localisation par GPS est désacivée. Activez-la dans les options de localisation.</string>
+    <string name="waiting_location">En attente du GPS.</string>
+    
+</resources>
