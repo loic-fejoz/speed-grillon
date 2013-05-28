@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="pref_key_limit_list"
+        android:defaultValue="30, 50, 90, 110, 130"
+        android:title="@string/pref_title_limitlist" />
+    <CheckBoxPreference
+        android:key="pref_key_unitmph"
+        android:defaultValue="false"
+        android:title="@string/pref_title_unitmph"
+        android:summary="@string/pref_summary_unitmph" />
+    <EditTextPreference
+        android:key="pref_key_alarm_threshold"
+        android:defaultValue="6"
+        android:title="@string/pref_title_alarm_threshold"
+        android:summary="@string/pref_summary_alarm_threshold" />
+</PreferenceScreen>

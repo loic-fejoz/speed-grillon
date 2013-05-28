@@ -2,5 +2,6 @@
 <resources>
     <color name="in_range">#008000</color>
     <color name="out_of_range">#FF0000</color>
+    <color name="neutral">#CCCCCC</color>
     
 </resources>
