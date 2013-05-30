@@ -1,10 +1,9 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/button_settings"
         android:showAsAction="always"
         android:title="@string/action_settings"
-        android:icon="@drawable/ic_launcher">
-    </item>
+        android:icon="@android:drawable/ic_menu_preferences" />
 
 </menu>

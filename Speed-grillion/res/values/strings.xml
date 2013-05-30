@@ -4,17 +4,22 @@
     <string name="app_name">Speed-grillion</string>
     <string name="not_applicable">―</string>
     <string name="initializing">Initializing</string>
-    <string name="error_no_provider">Sorry, this device lacks a suitable location provider for this application.</string>
     <string name="confirm">OK</string>
-    <string name="error_provider_disabled">GPS location is disabled in the settings, please enable it.</string>
     <string name="waiting_location">Waiting for GPS fix.</string>
     <string name="shared_prefs_key">eu.nomiros.speed_grillion.SHARED_PREFS</string>
     <string name="action_settings">@string/title_activity_settings</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_settings">Preferences</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_limit_list">Edit limit list</string>
     <string name="unit_kmph">km/h</string>
     <string name="unit_mph">mph</string>
+
+    <string name="error_no_provider">Sorry, this device lacks a suitable location provider for this application.
+    </string>
+    <string name="error_provider_disabled">GPS location is disabled in the settings, please enable it.</string>
+    <string name="error_invalid_limitlist">Invalid limit list. Restoring default.</string>
+    <string name="error_invalid_threshold">Invalid alert threshold. Restoring default.</string>
+
 
     <string name="pref_title_limitlist">Limit list</string>
 
